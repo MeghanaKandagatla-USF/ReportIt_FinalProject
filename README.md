@@ -1,6 +1,6 @@
 # 🚨 ReportIt
 
-**ReportIt** is a web-based crime reporting and analysis system. It allows users to log crime incidents, view trends through visualizations, and track system changes via audit logs. The application also integrates with the Chicago Open Data API to enrich its crime dataset.
+**ReportIt** is a web-based crime reporting and analysis system. It allows users to log crime incidents, view trends through visualizations, and track system changes via audit logs. The application integrates with the Chicago Open Data API for the crime dataset.
 
 ---
 
