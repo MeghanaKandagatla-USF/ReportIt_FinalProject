@@ -74,7 +74,7 @@ ReportIt/
 
 Our ER diagram models the relationship between `CrimeEvent` and `AuditLog`. Each crime event may have multiple related audit entries that track changes made to it. 
 
-You can view the ER diagram in the **About** section of the application.
+You can view the ER diagram in the **About Us** section of the application.
 ![image](https://github.com/user-attachments/assets/956916f0-c9a0-461a-8ac8-4631705819fb)
 
 
