@@ -27,7 +27,7 @@
 ---
 
 ## 📂 Folder Structure
----
+```
 ReportIt/
 ├── Controllers/                      # MVC controllers for features
 │   ├── CrimeEventsController.cs      # Handles crime data CRUD and API integration
@@ -59,7 +59,7 @@ ReportIt/
 ├── Program.cs                       # App startup
 ├── ReportIt.csproj                  # Project file
 └── README.md                        # Project documentation
----
+```
 
 ## ⚙️ Setup Instructions
 
