@@ -11,21 +11,26 @@
 - 🧾 Audit logs for all create, update, and delete actions
 - 🔍 Search functionality by area, town, or victim name
 - 🌐 API integration with Chicago Crime Data Portal
-- 🧭 MVC pattern with proper repository abstraction
 
 ---
 
 ## 🧱 Tech Stack
 
 - ASP.NET Core MVC (C#)
-- Entity Framework Core
-- Razor Views
-- SQL Server (.mdf test database)
-- Chart.js (or any front-end chart library)
+- SQL Server 
+- Chart.js 
 - Chicago Open Data API
 
 ---
+## 🌐 API Integration
 
+The application integrates with the **City of Chicago Open Data API** to retrieve real-world crime event data, enhancing the system with authentic external insights.
+
+🔗 **API Endpoint Used:**  
+[https://data.cityofchicago.org/resource/t7ek-mgzi.json](https://data.cityofchicago.org/resource/t7ek-mgzi.json)
+
+The data includes crime types, dates, locations, and coordinates, which are processed and stored for visualization and analysis.
+---
 ## 📂 Folder Structure
 ```
 ReportIt/
