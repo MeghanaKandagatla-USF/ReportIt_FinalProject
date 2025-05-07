@@ -49,9 +49,8 @@ ReportIt/
 │   ├── ReportItContext.cs            # EF Core DbContext
 │   ├── CrimeEventRepository.cs
 │   ├── AuditLogRepository.cs
-│   └── Interfaces/
-│       ├── ICrimeEventRepository.cs
-│       └── IAuditLogRepository.cs
+│   └── ICrimeEventRepository.cs
+│   └── IAuditLogRepository.cs
 │
 ├── Views/                            # Razor views
 │   ├── CrimeEvents/                  # Index, Create, Edit, Delete, Details, Visualization
