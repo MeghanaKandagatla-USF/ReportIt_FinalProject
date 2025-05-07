@@ -17,7 +17,6 @@
 ## 🧱 Tech Stack
 
 - ASP.NET Core MVC (C#)
-- SQL Server 
 - Chart.js 
 - Chicago Open Data API
 
