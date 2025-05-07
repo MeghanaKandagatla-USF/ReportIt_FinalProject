@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <History>True|2025-05-07T01:02:16.0990668Z||;True|2025-05-06T20:07:23.1958939-04:00||;True|2025-05-06T19:51:54.2540190-04:00||;True|2025-05-06T19:49:06.9961177-04:00||;True|2025-05-06T19:40:44.9831594-04:00||;True|2025-05-06T19:32:51.7696449-04:00||;True|2025-05-06T19:02:52.3467311-04:00||;False|2025-05-06T19:00:06.3871384-04:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="ReportItContext">
+      <Value>Server=tcp:test-databaseserver.database.windows.net%3bAuthentication=Active Directory Default%3bDatabase=test-database%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
