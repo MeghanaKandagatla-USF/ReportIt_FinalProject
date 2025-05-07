@@ -1,0 +1,68 @@
+﻿@model ReportIt.Models.CrimeEvent
+
+@{
+   ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center text-primary">Edit Crime Event</h1>
+
+<div class="card shadow mt-4">
+   <div class="card-header bg-primary text-white">
+       <h4 class="mb-0">Crime Event Details</h4>
+   </div>
+   <div class="card-body">
+       <form asp-action="Edit">
+           <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+           <input type="hidden" asp-for="Id" />
+           
+           <div class="form-group mb-3">
+               <label asp-for="CrimeDate" class="form-label fw-bold"></label>
+               <input asp-for="CrimeDate" class="form-control" />
+               <span asp-validation-for="CrimeDate" class="text-danger"></span>
+           </div>
+           
+           <div class="form-group mb-3">
+               <label asp-for="LocationArea" class="form-label fw-bold"></label>
+               <input asp-for="LocationArea" class="form-control" />
+               <span asp-validation-for="LocationArea" class="text-danger"></span>
+           </div>
+           
+           <div class="form-group mb-3">
+               <label asp-for="LocationTown" class="form-label fw-bold"></label>
+               <input asp-for="LocationTown" class="form-control" />
+               <span asp-validation-for="LocationTown" class="text-danger"></span>
+           </div>
+           
+           <div class="form-group mb-3">
+               <label asp-for="VictimName" class="form-label fw-bold"></label>
+               <input asp-for="VictimName" class="form-control" />
+               <span asp-validation-for="VictimName" class="text-danger"></span>
+           </div>
+           
+           <div class="form-group mb-3">
+               <label asp-for="CrimeType" class="form-label fw-bold"></label>
+               <select asp-for="CrimeType"
+                       class="form-control"
+                       asp-items="Html.GetEnumSelectList<CrimeTypeEnum>()">
+                   <option>Select type ...</option>
+               </select>
+               <span asp-validation-for="CrimeType" class="text-danger"></span>
+           </div>
+           
+           <div class="form-group mb-3">
+               <label asp-for="Notes" class="form-label fw-bold"></label>
+               <textarea asp-for="Notes" class="form-control" rows="3"></textarea>
+               <span asp-validation-for="Notes" class="text-danger"></span>
+           </div>
+           
+           <div class="d-flex justify-content-between">
+               <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+               <input type="submit" value="Save" class="btn btn-primary" />
+           </div>
+       </form>
+   </div>
+</div>
+
+@section Scripts {
+   @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

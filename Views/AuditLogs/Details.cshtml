@@ -1,0 +1,39 @@
+﻿@model ReportIt.Models.AuditLog
+
+@{
+   ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center text-primary my-4">Audit Log Details</h1>
+
+<div class="card shadow-sm">
+   <div class="card-header bg-primary text-white">
+       <h4 class="mb-0">Audit Log Information</h4>
+   </div>
+   <div class="card-body">
+       <dl class="row">
+           <dt class="col-sm-3 font-weight-bold text-secondary">
+               @Html.DisplayNameFor(model => model.ActionDateTime)
+           </dt>
+           <dd class="col-sm-9">
+               @Html.DisplayFor(model => model.ActionDateTime)
+           </dd>
+           <dt class="col-sm-3 font-weight-bold text-secondary">
+               @Html.DisplayNameFor(model => model.ActionType)
+           </dt>
+           <dd class="col-sm-9">
+               @Html.DisplayFor(model => model.ActionType)
+           </dd>
+           <dt class="col-sm-3 font-weight-bold text-secondary">
+               @Html.DisplayNameFor(model => model.CrimeEventID)
+           </dt>
+           <dd class="col-sm-9">
+               @Html.DisplayFor(model => model.CrimeEventID)
+           </dd>
+       </dl>
+   </div>
+</div>
+
+<div class="text-center mt-4">
+   <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
