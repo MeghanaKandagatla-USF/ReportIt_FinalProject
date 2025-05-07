@@ -1,0 +1,201 @@
+﻿@model IEnumerable<ReportIt.Models.CrimeEvent>
+
+@{
+    ViewData["Title"] = "Crime Event Visualization";
+}
+
+<h1 style="text-align: center; font-family: Arial, sans-serif; color: #2E8B57;">Crime Event Visualization</h1>
+
+<div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-top: 20px;">
+    <div style="flex: 1; min-width: 300px; text-align: center;">
+        <h3 style="font-family: Arial, sans-serif; color: #FF4500;">Crime Types Distribution</h3>
+        <p style="font-family: Arial, sans-serif; font-size: 14px; color: #555;">This chart shows the proportion of different types of crimes reported.</p>
+        <canvas id="crimeTypeChart" width="400" height="200"></canvas>
+    </div>
+
+    <div style="flex: 1; min-width: 300px; text-align: center;">
+        <h3 style="font-family: Arial, sans-serif; color: #1E90FF;">Crimes Over Time</h3>
+        <p style="font-family: Arial, sans-serif; font-size: 14px; color: #555;">This chart illustrates the trend of crimes over time.</p>
+        <canvas id="crimeOverTimeChart" width="400" height="200"></canvas>
+    </div>
+
+    <div style="flex: 1; min-width: 300px; text-align: center;">
+        <h3 style="font-family: Arial, sans-serif; color: #8A2BE2;">Crimes by Location Area</h3>
+        <p style="font-family: Arial, sans-serif; font-size: 14px; color: #555;">This chart highlights the number of crimes reported in different areas.</p>
+        <canvas id="crimeLocationChart" width="400" height="200"></canvas>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const crimeData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+
+            // Map crime type IDs to their names
+            const crimeTypeMapping = {
+                0: "Theft",
+                1: "Assault",
+                2: "Burglary",
+                3: "Vandalism",
+                4: "Fraud",
+                5: "Other"
+            };
+
+            // Chart 1: Crime Types Distribution (Pie Chart)
+            const crimeTypeData = crimeData.reduce((acc, crime) => {
+                const crimeTypeName = crimeTypeMapping[crime.CrimeType] || "Unknown";
+                acc[crimeTypeName] = (acc[crimeTypeName] || 0) + 1;
+                return acc;
+            }, {});
+            const crimeTypeLabels = Object.keys(crimeTypeData);
+            const crimeTypeCounts = Object.values(crimeTypeData);
+
+            new Chart(document.getElementById('crimeTypeChart').getContext('2d'), {
+                type: 'pie',
+                data: {
+                    labels: crimeTypeLabels,
+                    datasets: [{
+                        data: crimeTypeCounts,
+                        backgroundColor: ['#FF4500', '#1E90FF', '#FFD700', '#32CD32', '#8A2BE2'],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    return `${label}: ${value} occurrences`;
+                                }
+                            }
+                        }
+                    },
+                    animation: {
+                        duration: 2000,
+                        easing: 'easeOutBounce'
+                    },
+                    elements: {
+                        point: {
+                            radius: 10 // Increased cursor size
+                        }
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    }
+                }
+            });
+
+            // Chart 2: Crimes Over Time (Line Chart)
+            const crimeOverTimeData = crimeData.reduce((acc, crime) => {
+                const date = new Date(crime.CrimeDate).toISOString().split('T')[0];
+                acc[date] = (acc[date] || 0) + 1;
+                return acc;
+            }, {});
+            const crimeOverTimeLabels = Object.keys(crimeOverTimeData).sort();
+            const crimeOverTimeCounts = crimeOverTimeLabels.map(date => crimeOverTimeData[date]);
+
+            new Chart(document.getElementById('crimeOverTimeChart').getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: crimeOverTimeLabels,
+                    datasets: [{
+                        label: 'Crimes Over Time',
+                        data: crimeOverTimeCounts,
+                        borderColor: '#1E90FF',
+                        backgroundColor: 'rgba(30, 144, 255, 0.2)',
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `Date: ${context.label}, Crimes: ${context.raw}`;
+                                }
+                            }
+                        },
+                        legend: {
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        }
+                    },
+                    animation: {
+                        duration: 1500,
+                        easing: 'easeInOutQuart'
+                    },
+                    elements: {
+                        point: {
+                            radius: 10 // Increased cursor size
+                        }
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    }
+                }
+            });
+
+            // Chart 3: Crimes by Location Area (Bar Chart)
+            const crimeLocationData = crimeData.reduce((acc, crime) => {
+                acc[crime.LocationArea] = (acc[crime.LocationArea] || 0) + 1;
+                return acc;
+            }, {});
+            const crimeLocationLabels = Object.keys(crimeLocationData);
+            const crimeLocationCounts = Object.values(crimeLocationData);
+
+            new Chart(document.getElementById('crimeLocationChart').getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: crimeLocationLabels,
+                    datasets: [{
+                        label: 'Crimes by Location Area',
+                        data: crimeLocationCounts,
+                        backgroundColor: 'rgba(138, 43, 226, 0.2)',
+                        borderColor: 'rgba(138, 43, 226, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `${context.label}: ${context.raw} crimes`;
+                                }
+                            }
+                        }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeInOutBounce'
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    elements: {
+                        point: {
+                            radius: 10 // Increased cursor size
+                        }
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    }
+                }
+            });
+        });
+    </script>
+}

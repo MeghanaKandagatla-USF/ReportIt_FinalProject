@@ -1,0 +1,87 @@
+﻿@{  
+ViewData["Title"] = "Home Page";  
+}  
+
+<div class="container mt-5">  
+  <div class="text-center">  
+      <h1 class="display-3 text-primary fw-bold animate__animated animate__fadeInDown">Welcome to <span class="text-warning">Report It</span></h1>  
+      <p class="lead text-muted animate__animated animate__fadeInUp">Your trusted platform for reporting and managing crime-related data</p>  
+      <a href="/CrimeEvents/" class="btn btn-gradient btn-lg mt-4 px-5 animate__animated animate__pulse animate__infinite">Get Started</a>  
+  </div>  
+
+  <hr class="my-5" />  
+
+  <div class="row align-items-center">  
+      <div class="col-md-12">  
+          <h2 class="text-secondary fw-bold animate__animated animate__fadeInLeft">About This Site</h2>  
+          <p class="text-muted animate__animated animate__fadeInRight">We provide a secure and user-friendly platform to help you record, view, and manage crime-related data efficiently. Empower your community with actionable insights.</p>  
+      </div>  
+      @* <div class="col-md-6 text-center">  
+          <img src="https://citizen.com/images/crime-data.jpg" alt="Crime Data" class="img-fluid rounded shadow-lg animate__animated animate__zoomIn" />  
+      </div> *@  
+  </div>  
+
+  <div class="mt-5">  
+      <h3 class="text-secondary fw-bold text-center animate__animated animate__fadeInUp">Features</h3>  
+      <div class="row text-center mt-4">  
+          <div class="col-md-4">  
+              <div class="card shadow border-0 animate__animated animate__fadeInLeft">  
+                  <div class="card-body">  
+                      <h5 class="card-title text-primary">Crime Records</h5>  
+                      <p class="card-text text-muted">View and manage a list of recorded crime events with ease.</p>  
+                  </div>  
+              </div>  
+          </div>  
+          <div class="col-md-4">  
+              <div class="card shadow border-0 animate__animated animate__fadeInUp">  
+                  <div class="card-body">  
+                      <h5 class="card-title text-primary">Data Security</h5>  
+                      <p class="card-text text-muted">Your data is stored securely and reliably for peace of mind.</p>  
+                  </div>  
+              </div>  
+          </div>  
+          <div class="col-md-4">  
+              <div class="card shadow border-0 animate__animated animate__fadeInRight">  
+                  <div class="card-body">  
+                      <h5 class="card-title text-primary">Reports & Insights</h5>  
+                      <p class="card-text text-muted">Generate detailed reports and visualize trends with interactive charts.</p>  
+                  </div>  
+              </div>  
+          </div>  
+      </div>  
+  </div>  
+
+  <div class="mt-5">  
+      <h3 class="text-secondary fw-bold text-center animate__animated animate__fadeInUp">How to Use</h3>  
+      <div class="row mt-4">  
+          <div class="col-md-12">  
+              <ol class="list-group list-group-numbered">  
+                  <li class="list-group-item animate__animated animate__fadeInRight">Navigate to the <a href="/CrimeEvents/">Crime Events</a> page.</li>  
+                  <li class="list-group-item animate__animated animate__fadeInRight">Click "Add New" to record a new crime event.</li>  
+                  <li class="list-group-item animate__animated animate__fadeInRight">Use the search bar to find specific records.</li>  
+                  <li class="list-group-item animate__animated animate__fadeInRight">Visualize data trends using the interactive dashboard.</li>  
+              </ol>  
+          </div>  
+          @* <div class="col-md-6 text-center">  
+              <img src="https://citizen.com/images/how-to-use.jpg" alt="How to Use" class="img-fluid rounded shadow-lg animate__animated animate__zoomIn" />  
+          </div>   *@
+      </div>  
+  </div>  
+
+  <div class="text-center mt-5">  
+      <p class="text-muted animate__animated animate__fadeIn">We hope this tool helps you manage crime data effectively!</p>  
+      @* <img src="https://citizen.com/images/secure-data.jpg" alt="Secure Data" class="img-fluid rounded shadow-lg mt-3 animate__animated animate__zoomIn" style="max-width: 300px;" />   *@
+  </div>  
+</div>  
+
+<style>  
+.btn-gradient {  
+   background: linear-gradient(90deg, #ff7e5f, #feb47b);  
+   color: white;  
+   border: none;  
+}  
+.btn-gradient:hover {  
+   background: linear-gradient(90deg, #feb47b, #ff7e5f);  
+}  
+</style>  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
