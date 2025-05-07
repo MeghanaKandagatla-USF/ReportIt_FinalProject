@@ -1,0 +1,59 @@
+﻿@model ReportIt.Models.CrimeEvent
+
+@{
+   ViewData["Title"] = "Details";
+}
+
+<div class="container mt-4">
+   <div class="card shadow-sm">
+       <div class="card-header bg-primary text-white">
+           <h1 class="h4 mb-0">Crime Event Details</h1>
+       </div>
+       <div class="card-body">
+           <h4 class="text-secondary">Crime Event Information</h4>
+           <hr />
+           <dl class="row">
+               <dt class="col-sm-3 font-weight-bold">
+                   @Html.DisplayNameFor(model => model.CrimeDate)
+               </dt>
+               <dd class="col-sm-9">
+                   @Html.DisplayFor(model => model.CrimeDate)
+               </dd>
+               <dt class="col-sm-3 font-weight-bold">
+                   @Html.DisplayNameFor(model => model.LocationArea)
+               </dt>
+               <dd class="col-sm-9">
+                   @Html.DisplayFor(model => model.LocationArea)
+               </dd>
+               <dt class="col-sm-3 font-weight-bold">
+                   @Html.DisplayNameFor(model => model.LocationTown)
+               </dt>
+               <dd class="col-sm-9">
+                   @Html.DisplayFor(model => model.LocationTown)
+               </dd>
+               <dt class="col-sm-3 font-weight-bold">
+                   @Html.DisplayNameFor(model => model.VictimName)
+               </dt>
+               <dd class="col-sm-9">
+                   @Html.DisplayFor(model => model.VictimName)
+               </dd>
+               <dt class="col-sm-3 font-weight-bold">
+                   @Html.DisplayNameFor(model => model.CrimeType)
+               </dt>
+               <dd class="col-sm-9">
+                   @Html.DisplayFor(model => model.CrimeType)
+               </dd>
+               <dt class="col-sm-3 font-weight-bold">
+                   @Html.DisplayNameFor(model => model.Notes)
+               </dt>
+               <dd class="col-sm-9">
+                   @Html.DisplayFor(model => model.Notes)
+               </dd>
+           </dl>
+       </div>
+       <div class="card-footer text-center">
+           <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+           <a class="btn btn-secondary btn-sm" asp-action="Index">Back to List</a>
+       </div>
+   </div>
+</div>
